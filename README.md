@@ -1,0 +1,1 @@
+Password Generator is a React-based web application that creates secure and customizable passwords. Users can select password length and options like numbers and symbols, demonstrating the use of React hooks, state management, and dynamic user interface handling.

@@ -26,7 +26,22 @@ const generatepassword = useCallback(()=>{
        pass += str[Math.floor(Math.random()*str.length)]
     }
     setPassword(pass);
-},[length,numberChanged,charChanged]);
+},[generatepassword]);
+// ye abhi kar sakte hai becuse genereate password bhi naya create hoga
+
+// const generatepassword = useCallback(()=>{
+//  let str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//     if(numberChanged)
+//         str += "0123456789";
+//     if(charChanged)
+//         str += "@#$%^&*()+/-~";
+
+//     let pass = ""
+//     for(let i=0;i<length;i++){
+//        pass += str[Math.floor(Math.random()*str.length)]
+//     }
+//     setPassword(pass);
+// },[length,numberChanged,charChanged]);
 
 
 // generatepassword();  // ye finite loop mein chalega aise kia toh

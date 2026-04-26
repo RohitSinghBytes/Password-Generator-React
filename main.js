@@ -28,6 +28,7 @@ const generatepassword = useCallback(()=>{
     setPassword(pass);
 },[generatepassword]);
 // ye abhi kar sakte hai becuse genereate password bhi naya create hoga
+// because length ,numberchanged,charchanged hoha toh generate password bhi changed hoga hi hoga
 
 // const generatepassword = useCallback(()=>{
 //  let str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import ReactDom from "react-dom/client";
 
 // Password : asdfghj, setPassword()
@@ -7,14 +7,15 @@ import ReactDom from "react-dom/client";
 // charChanged = false, setcharChanged()
 
 function PasswordGenerator(){
+    // setPassword,setlength,setnumberchanged,setcharchanged bas ek bar hi create hote hai baar baar nahi jabki password ,length, numberchanged, charchanged baar baar create hote hai
  
 const [Password,setPassword] = useState("");
 const [length,setlength] = useState(10);
 const [numberChanged, setnumberChanged] = useState(false);
 const [charChanged, setcharChanged] = useState(false);
 
-function generatepassword(){
-    let str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const generatepassword = useCallback(()=>{
+ let str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if(numberChanged)
         str += "0123456789";
     if(charChanged)
@@ -25,7 +26,8 @@ function generatepassword(){
        pass += str[Math.floor(Math.random()*str.length)]
     }
     setPassword(pass);
-};
+},[length,numberChanged,charChanged]);
+
 
 // generatepassword();  // ye finite loop mein chalega aise kia toh
 // therefore use the useEffect hook
@@ -60,4 +62,4 @@ generatepassword();
 }
 
 
-ReactDom.createRoot(document.getElementById('root')).render(<PasswordGenerator/>);
+ReactDom.createRoot(document.getElementById('root')).render(<PasswordGenerator/>); 
